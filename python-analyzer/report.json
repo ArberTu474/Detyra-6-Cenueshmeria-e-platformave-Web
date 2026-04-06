@@ -1,0 +1,54 @@
+{
+  "target": "https://badssl.com/",
+  "risk_score": 14,
+  "findings": [
+    {
+      "finding": "Missing security header: Content-Security-Policy",
+      "severity": "Medium",
+      "evidence": "Content-Security-Policy not present",
+      "remediation": "Configure the server to return the Content-Security-Policy header."
+    },
+    {
+      "finding": "Missing security header: Strict-Transport-Security",
+      "severity": "Medium",
+      "evidence": "Strict-Transport-Security not present",
+      "remediation": "Configure the server to return the Strict-Transport-Security header."
+    },
+    {
+      "finding": "Missing security header: X-Content-Type-Options",
+      "severity": "Medium",
+      "evidence": "X-Content-Type-Options not present",
+      "remediation": "Configure the server to return the X-Content-Type-Options header."
+    },
+    {
+      "finding": "Missing security header: X-Frame-Options",
+      "severity": "Medium",
+      "evidence": "X-Frame-Options not present",
+      "remediation": "Configure the server to return the X-Frame-Options header."
+    },
+    {
+      "finding": "Missing security header: Referrer-Policy",
+      "severity": "Medium",
+      "evidence": "Referrer-Policy not present",
+      "remediation": "Configure the server to return the Referrer-Policy header."
+    },
+    {
+      "finding": "Missing security header: Permissions-Policy",
+      "severity": "Medium",
+      "evidence": "Permissions-Policy not present",
+      "remediation": "Configure the server to return the Permissions-Policy header."
+    },
+    {
+      "finding": "Server banner disclosed",
+      "severity": "Low",
+      "evidence": "nginx/1.10.3 (Ubuntu)",
+      "remediation": "Reduce or suppress server version disclosure."
+    },
+    {
+      "finding": "Interesting path exposed: /robots.txt",
+      "severity": "Low",
+      "evidence": "https://badssl.com/robots.txt",
+      "remediation": "Review whether this path should remain public."
+    }
+  ]
+}
