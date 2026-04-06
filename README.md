@@ -181,6 +181,8 @@ Nga interpretimi teknik i rezultateve rezulton se përdorimi i HTTPS ka përmir�
 nmap -sV -Pn 127.0.0.1 -p 3000
 ```
 
+Output
+
 ```bash
 Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-06 14:26 +0200
 Nmap scan report for localhost (127.0.0.1)
@@ -234,7 +236,9 @@ Në target-in `HTTPS`, Nmap identifikoi portën `8443`/tcp si të hapur dhe shë
 nikto -h http://127.0.0.1:3000
 ```
 
-```bash
+Output
+
+```text
 - Nikto v2.6.0
 ---------------------------------------------------------------------------
 + Your Nikto installation is out of date.
@@ -280,8 +284,6 @@ nikto -h http://127.0.0.1:3000
 + 1 host(s) tested
 ```
 
-Output
-
 ### HTTPS
 
 ```bash
@@ -290,7 +292,7 @@ nikto -h https://localhost:8443
 
 Output
 
-```bash
+```text
 - Nikto v2.6.0
 ---------------------------------------------------------------------------
 + Your Nikto installation is out of date.
@@ -360,7 +362,7 @@ Një finding shtesë që u raportua vetëm në target-in `HTTPS` ishte përdorim
 nuclei -u http://127.0.0.1:3000
 ```
 
-output
+Output
 
 ```bash
                      __     _
@@ -555,25 +557,25 @@ Në të njëjtën kohë, fakti që shumë engine të tjera e shënuan URL-në si
 
 Për demonstrimin praktik të sjelljes së browser-it ndaj konfigurimeve të ndryshme `SSL/TLS` u përdor `badssl`, një platformë publike e ndërtuar posaçërisht për testimin e certifikatave, protokolleve dhe politikave të sigurisë së transportit. Ndryshe nga mjetet që japin nota ose score, badssl u përdor si mjedis testues për të vëzhguar drejtpërdrejt reagimin e browser-it në skenarë të ndryshëm të sigurisë HTTPS.
 
-#### `expired.badssl.com`
+- #### `expired.badssl.com`
 
 ![expired.badssl.com-results](image-9.png)
 
 Browser-i shfaqi paralajmërimin `Your connection is not private` dhe kodin e gabimit `NET::ERR_CERT_DATE_INVALID`. Ky rezultat tregon se certifikata e serverit është e skaduar dhe nuk konsiderohet më e vlefshme nga browser-i, prandaj lidhja nuk mund të konsiderohet e besueshme.
 
-#### `self-signed.badssl.com`
+- #### `self-signed.badssl.com`
 
 ![self-signed.badssl.com-results](image-10.png)
 
 Në rastin e `self-signed.badssl.com`, browser-i shfaqi gjithashtu paralajmërimin `Your connection is not private`, por me kodin `NET::ERR_CERT_AUTHORITY_INVALID`. Ky rast demonstron se prania e `HTTPS` nuk mjafton nëse certifikata nuk është lëshuar nga një autoritet certifikues i besuar, pasi browser-i nuk mund të verifikojë zinxhirin e besimit të certifikatës.
 
-#### `hsts.badssl.com`
+- #### `hsts.badssl.com`
 
 ![.badssl.com-results](image-11.png)
 
 Për `hsts.badssl.com`, rezultati ishte `HSTS is working`, çka tregon se politika `HTTP Strict Transport Security` po zbatohet siç duhet. Kjo demonstron se browser-i detyrohet të përdorë `HTTPS` dhe nuk lejon rënie të lidhjes në `HTTP` të pasigurt për këtë host.
 
-#### `tls-v1-0.badssl.com`
+- #### `tls-v1-0.badssl.com`
 
 ![tls-v1-0.badssl.com-results](image-12.png)
 
