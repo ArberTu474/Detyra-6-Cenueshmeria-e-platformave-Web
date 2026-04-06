@@ -134,28 +134,6 @@ VirusTotal URL scan është përdorur si kontroll reputacioni për URL-të publi
 
 badssl është përdorur për demonstrime dhe validime të ndryshme të SSL/TLS behavior, përfshirë raste si self-signed certificates, expired certificates dhe HSTS behavior.
 
-### Komandat e përdorura gjatë analizës
-
-#### Nmap
-
-```bash
-nmap -sV -Pn 127.0.0.1 -p 3000,8443
-```
-
-#### Nikto
-
-```bash
-nikto -h http://127.0.0.1:3000
-nikto -h https://localhost:8443
-```
-
-#### Nuclei
-
-```bash
-nuclei -u http://127.0.0.1:3000
-nuclei -u https://localhost:8443
-```
-
 ## Hapat e përdorimit në ZAP
 
 Për OWASP ZAP është ndjekur workflow i Quick Start, duke vendosur fillimisht URL-në e target-it HTTP dhe më pas URL-në e target-it HTTPS, me qëllim realizimin e spider, passive scan dhe active scan. Në target-in HTTPS është pranuar local certificate warning vetëm sepse analiza është kryer në një lab të kontrolluar.
